@@ -1,14 +1,48 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일별 복리 계산기</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+<div class="container" id="capture-area">
+    <h2>일별 복리 계산기</h2>
+    
+    <div class="input-group">
+        <label>시작 원금 (원)</label>
+        <input type="number" id="principal" value="1000000">
+    </div>
+    <div class="input-group">
+        <label>수익률 (%)</label>
+        <!-- step을 1로 설정하여 화살표 클릭 시 1%씩 증감 -->
+        <input type="number" id="rate" step="1" value="1">
+    </div>
+    <div class="input-group">
+        <label>투자 기간 (일) - 최대 999일</label>
+        <input type="number" id="days" value="30" max="999">
+    </div>
+
+    <div class="button-area">
+        <button class="btn-calc" onclick="calculateDaily()">계산하기</button>
+        <button class="btn-save" onclick="saveAsImage()">저장</button>
+        <button class="btn-share" onclick="shareResults()">공유</button>
+    </div>
+
+    <div id="result-wrapper">
+        <div class="summary" id="final-summary"></div>
+        <div class="result-header">
+            <span>날짜</span>
+            <span>예상 자산</span>
+        </div>
+        <div class="result-list" id="daily-list"></div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+
 </body>
 </html>
