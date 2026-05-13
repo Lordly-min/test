@@ -30,6 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px; /* 컨테이너 사이 간격 */
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -67,7 +68,7 @@ h2 {
 }
 
 .input-group {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 label {
@@ -78,7 +79,8 @@ label {
     font-weight: bold;
 }
 
-input {
+input,
+textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--input-border);
@@ -87,6 +89,11 @@ input {
     font-size: 16px;
     background-color: var(--container-bg);
     color: var(--text-color);
+    font-family: inherit; /* 폰트 상속 */
+}
+
+textarea {
+    resize: vertical;
 }
 
 .button-area {
@@ -109,6 +116,7 @@ button {
 .btn-calc { background-color: #1a73e8; color: white; }
 .btn-save { background-color: #34a853; color: white; }
 .btn-share { background-color: #fbbc05; color: white; }
+.btn-submit { background-color: #4285f4; color: white; width: 100%;}
 button:active { opacity: 0.7; }
 
 #result-wrapper {
